@@ -1,0 +1,76 @@
+// Import breakpoint settings (Ensure this path is correct)
+@use "breakpointkit";
+
+// Grid system with customizable settings
+$grid-columns: 12 !default; // Number of columns
+$grid-gaps: (
+    none: 0,
+    sm: 8px,
+    md: 16px,
+    lg: 24px,
+    xl: 32px) !default;
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat($grid-columns, 1fr
+    );
+
+  gap: var(--grid-gap, 16px); // Default gap
+
+// Generate gap utilities
+@each $size, $gap in $grid-gaps {
+    &.gap-#{$size} {
+        --grid-gap: #{$gap};
+    }
+}
+}
+
+// Generate column classes for default and responsive sizes
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        grid-column: span $i;
+    }
+}
+
+// Responsive column classes using breakpoints from `breakpointkit.scss`
+@each $breakpoint, $size in $breakpoints {
+    @include breakpoint($breakpoint) {
+        @for $i from 1 through $grid-columns {
+            .col-#{$breakpoint}-#{$i} {
+                grid-column: span $i;
+            }
+        }
+
+        // Ensure grid is applied at the breakpoint
+        .grid-#{$breakpoint} {
+            display: grid;
+        }
+    }
+}
+
+// Flex alignment utilities
+.grid {
+    &.align-start {
+        align-items: start;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.align-end {
+        align-items: end;
+    }
+
+    &.justify-start {
+        justify-content: start;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.justify-end {
+        justify-content: end;
+    }
+}

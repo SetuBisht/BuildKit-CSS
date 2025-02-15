@@ -1,0 +1,99 @@
+// Default border widths
+$border-widths: (
+    xs: 1px,
+    sm: 2px,
+    md: 4px,
+    lg: 6px,
+    xl: 8px) !default;
+
+// Default border radius values
+$border-radius: (
+    none: 0,
+    sm: 4px,
+    md: 8px,
+    lg: 12px,
+    xl: 16px,
+    full: 9999px) !default;
+
+// Default border styles
+$border-styles: (
+    solid,
+    dashed,
+    dotted,
+    double) !default;
+
+// Generate border width classes
+@each $size, $value in $border-widths {
+    .border-#{$size} {
+        border-width: $value !important;
+    }
+}
+
+// Generate border radius classes
+@each $size, $value in $border-radius {
+    .rounded-#{$size} {
+        border-radius: $value !important;
+    }
+}
+
+// Generate border styles
+@each $style in $border-styles {
+    .border-#{$style} {
+        border-style: $style !important;
+    }
+}
+
+// Utility classes for border sides
+.border {
+    border-width: var(--border-width, 1px
+    );
+border-style: var(--border-style, solid);
+}
+
+.border-t {
+    border-top: var(--border-width, 1px) var(--border-style, solid);
+}
+
+.border-b {
+    border-bottom: var(--border-width, 1px) var(--border-style, solid);
+}
+
+.border-l {
+    border-left: var(--border-width, 1px) var(--border-style, solid);
+}
+
+.border-r {
+    border-right: var(--border-width, 1px) var(--border-style, solid);
+}
+
+// Arbitrary border width and radius support
+[class^="border-["],
+[class*=" border-["] {
+    border-width: var(--border-width) !important;
+}
+
+[class^="rounded-["],
+[class*=" rounded-["] {
+    border-radius: var(--border-radius) !important;
+}
+
+// Border colors using CSS variables (supporting themes)
+.border-color {
+    border-color: var(--border-color, currentColor) !important;
+}
+
+.border-t-color {
+    border-top-color: var(--border-color, currentColor) !important;
+}
+
+.border-b-color {
+    border-bottom-color: var(--border-color, currentColor) !important;
+}
+
+.border-l-color {
+    border-left-color: var(--border-color, currentColor) !important;
+}
+
+.border-r-color {
+    border-right-color: var(--border-color, currentColor) !important;
+}

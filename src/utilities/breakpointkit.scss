@@ -1,0 +1,68 @@
+// Define breakpoints
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px) !default;
+
+// Mixin for media queries
+@mixin breakpoint($size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+// Generate display utilities
+.display-none {
+    display: none;
+}
+
+@each $bp, $size in $breakpoints {
+    @include breakpoint($bp) {
+        .#{$bp}\:display-none {
+            display: none !important;
+        }
+
+        .#{$bp}\:display-block {
+            display: block !important;
+        }
+
+        .#{$bp}\:display-flex {
+            display: flex !important;
+        }
+
+        .#{$bp}\:display-grid {
+            display: grid !important;
+        }
+    }
+}
+
+// Generate visibility utilities
+@each $bp, $size in $breakpoints {
+    @include breakpoint($bp) {
+        .#{$bp}\:hidden {
+            visibility: hidden !important;
+        }
+
+        .#{$bp}\:visible {
+            visibility: visible !important;
+        }
+    }
+}
+
+// Generate text alignment utilities
+@each $bp, $size in $breakpoints {
+    @include breakpoint($bp) {
+        .#{$bp}\:text-left {
+            text-align: left !important;
+        }
+
+        .#{$bp}\:text-center {
+            text-align: center !important;
+        }
+
+        .#{$bp}\:text-right {
+            text-align: right !important;
+        }
+    }
+}

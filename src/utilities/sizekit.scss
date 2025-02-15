@@ -1,0 +1,40 @@
+// Default size scale (Users can override)
+$size-values: (
+    xs: 25%,
+    sm: 50%,
+    md: 75%,
+    lg: 100%,
+    full: 100vw,
+    screen: 100vh) !default;
+
+// Generate predefined width and height classes
+@mixin size-class($prefix, $size, $value) {
+    .#{$prefix}-#{$size} {
+        @if ($prefix ==width) {
+            width: $value !important;
+        }
+
+        @else if ($prefix ==height) {
+            height: $value !important;
+        }
+    }
+}
+
+// Generate classes for all predefined sizes
+@each $size, $value in $size-values {
+    @each $prefix in (width, height) {
+        @include size-class($prefix, $size, $value
+    );
+}
+}
+
+// Arbitrary Dynamic Sizing (Supports px, %, vh, vw, rem, ch)
+[class^="width-\["],
+[class*=" width-\["] {
+    width: var(--size-width) !important;
+}
+
+[class^="height-\["],
+[class*=" height-\["] {
+    height: var(--size-height) !important;
+}

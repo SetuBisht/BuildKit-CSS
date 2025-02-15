@@ -1,0 +1,70 @@
+// 🎨 Theme Variables
+$colors: (
+    "primary": #007bff,
+    "secondary": #6c757d,
+    "accent": #ff5722,
+    "success": #28a745,
+    "warning": #ffc107,
+    "danger": #dc3545,
+    "info": #17a2b8,
+    "light": #f8f9fa,
+    "dark": #343a40,
+    "neutral": #e0e0e0) !default;
+
+// 🌙 Dark Mode Variables
+$dark-colors: (
+    "primary": #0056b3,
+    "secondary": #495057,
+    "accent": #e64a19,
+    "success": #218838,
+    "warning": #e0a800,
+    "danger": #c82333,
+    "info": #138496,
+    "light": #343a40,
+    "dark": #f8f9fa,
+    "neutral": #424242) !default;
+
+// 🎨 Generate Text, Background, and Border Classes
+@each $name, $color in $colors {
+    .text-#{$name} {
+        color: $color;
+    }
+
+    .bg-#{$name} {
+        background-color: $color;
+    }
+
+    .border-#{$name} {
+        border-color: $color;
+    }
+}
+
+// 🌙 Dark Mode Support
+[data-theme="dark"] {
+    @each $name, $color in $dark-colors {
+        .text-#{$name} {
+            color: $color;
+        }
+
+        .bg-#{$name} {
+            background-color: $color;
+        }
+
+        .border-#{$name} {
+            border-color: $color;
+        }
+    }
+}
+
+// 🎛 Allow customization via JS config
+:root {
+    @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+}
+
+[data-theme="dark"] {
+    @each $name, $color in $dark-colors {
+        --color-#{$name}: #{$color};
+    }
+}

@@ -1,141 +1,87 @@
-import "../../dist/buildKit.css";
-import "../../dist/main.js";
+import "../../dist/buildKit.css"; // Ensure this imports your SCSS output CSS
+import "../../dist/main.js"; // If you have JS interactions, import them
 
 export default {
-  title: "Utilities/Flexbox",
+  title: "Utilities/Flexbox", // Grouping Flexbox utilities under a "Utilities" category
+  parameters: {
+    layout: "centered", // Center the stories in Storybook
+  },
 };
 
-export const FlexboxExamples = () => `
-  <style>
-    .box {
-      width: 100px;
-      height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 14px;
-      background-color: #e2e8f0;
-    }
-  </style>
+export const FlexboxContainerExamples = () => `
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h2 style="color: #2D3748; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Flexbox Containers</h2>
 
-  <h3>Flexbox Container Classes</h3>
+    <!-- Flex Container (row direction) -->
+    <div style="margin-bottom: 20px;">
+      <h3 style="color: #4A5568; font-size: 18px; font-weight: semi-bold; margin-bottom: 10px;">Flex Container (Row Direction)</h3>
+      <div class="flex gap-[20px] m-[5px]" style="border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; background-color: #F7FAFC; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 1</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 2</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 3</div>
+      </div>
+    </div>
   
-  <!-- Flex Container with Row Direction -->
-  <div class="flex gap-[20px] m-[5px]">
-    <div class="box m-[5px]">Item 1</div>
-    <div class="box m-[5px]">Item 2</div>
-    <div class="box ">Item 3</div>
+    <!-- Flex Container (column direction) -->
+    <div>
+      <h3 style="color: #4A5568; font-size: 18px; font-weight: semi-bold; margin-bottom: 10px;">Flex Container (Column Direction)</h3>
+      <div class="flex flex-column gap-[20px] m-[5px]" style="border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; background-color: #F7FAFC; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 1</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 2</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 3</div>
+      </div>
+    </div>
   </div>
+`;
 
-  <!-- Flex Container with Column Direction -->
-  <div class="flex flex-column">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
+export const FlexboxJustifyContentExamples = () => `
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h2 style="color: #2D3748; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Justify Content Classes (Horizontal Alignment)</h2>
+
+    <!-- Justify Center -->
+    <div style="margin-bottom: 20px;">
+      <h3 style="color: #4A5568; font-size: 18px; font-weight: semi-bold; margin-bottom: 10px;">Justify Content (Center)</h3>
+      <div class="flex justify-center gap-[10px]" style="border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; background-color: #F7FAFC; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 1</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 2</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 3</div>
+      </div>
+    </div>
+
+    <!-- Justify Start -->
+    <div style="margin-bottom: 20px;">
+      <h3 style="color: #4A5568; font-size: 18px; font-weight: semi-bold; margin-bottom: 10px;">Justify Content (Start)</h3>
+      <div class="flex justify-start gap-[10px]" style="border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; background-color: #F7FAFC; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 1</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 2</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 3</div>
+      </div>
+    </div>
+
+    <!-- Justify End -->
+    <div style="margin-bottom: 20px;">
+      <h3 style="color: #4A5568; font-size: 18px; font-weight: semi-bold; margin-bottom: 10px;">Justify Content (End)</h3>
+      <div class="flex justify-end gap-[10px]" style="border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; background-color: #F7FAFC; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 1</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 2</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 3</div>
+      </div>
+    </div>
   </div>
+`;
 
-  <h3>Justify Content Classes (Horizontal Alignment)</h3>
+export const FlexboxAlignItemsExamples = () => `
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h2 style="color: #2D3748; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Align Items Classes (Vertical Alignment)</h2>
 
-  <!-- Justify Center -->
-  <div class="flex justify-center">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Justify Start -->
-  <div class="flex justify-start">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Justify End -->
-  <div class="flex justify-end">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Justify Between -->
-  <div class="flex justify-between">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Justify Around -->
-  <div class="flex justify-around">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Justify Evenly -->
-  <div class="flex justify-evenly">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <h3>Align Items Classes (Vertical Alignment)</h3>
-
-  <!-- Align Center -->
-  <div class="flex items-center">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Align Start -->
-  <div class="flex items-start">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Align End -->
-  <div class="flex items-end">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Align Baseline -->
-  <div class="flex items-baseline">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Align Stretch -->
-  <div class="flex items-stretch">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <h3>Flex Wrap Classes</h3>
-
-  <!-- Flex Wrap No Wrap -->
-  <div class="flex wrap-nowrap">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Flex Wrap -->
-  <div class="flex wrap-wrap">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
-  </div>
-
-  <!-- Flex Wrap Reverse -->
-  <div class="flex wrap-wrap-reverse">
-    <div class="box">Item 1</div>
-    <div class="box">Item 2</div>
-    <div class="box">Item 3</div>
+    <!-- Align Center -->
+    <div style="margin-bottom: 20px;">
+      <h3 style="color: #4A5568; font-size: 18px; font-weight: semi-bold; margin-bottom: 10px;">Align Items (Center)</h3>
+      <div class="flex items-center gap-[10px]" style="border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; background-color: #F7FAFC; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 1</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 2</div>
+        <div class="box" style="background-color: #EDF2F7; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Item 3</div>
+      </div>
+    </div>
   </div>
 `;

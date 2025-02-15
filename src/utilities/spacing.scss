@@ -30,6 +30,58 @@ $spacing-values: (
     }
 }
 
+// Generate predefined spacing classes
+@mixin spacing-class($prefix, $size, $value) {
+    .#{$prefix}-#{$size} {
+        @if ($prefix =="m") {
+            margin: $value !important;
+        }
+
+        @else if ($prefix =="p") {
+            padding: $value !important;
+        }
+
+        @else if ($prefix =="mt") {
+            margin-top: $value !important;
+        }
+
+        @else if ($prefix =="mb") {
+            margin-bottom: $value !important;
+        }
+
+        @else if ($prefix =="ml") {
+            margin-left: $value !important;
+        }
+
+        @else if ($prefix =="mr") {
+            margin-right: $value !important;
+        }
+
+        @else if ($prefix =="pt") {
+            padding-top: $value !important;
+        }
+
+        @else if ($prefix =="pb") {
+            padding-bottom: $value !important;
+        }
+
+        @else if ($prefix =="pl") {
+            padding-left: $value !important;
+        }
+
+        @else if ($prefix =="pr") {
+            padding-right: $value !important;
+        }
+    }
+
+    // Negative margins (Padding cannot be negative)
+    @if ($prefix =="m" or $prefix =="mt" or $prefix =="mb" or $prefix =="ml" or $prefix =="mr") {
+        .#{$prefix}-n#{$size} {
+            margin: -$value !important;
+        }
+    }
+}
+
 // Generate spacing classes for all predefined sizes
 @each $size, $value in $spacing-values {
     @each $prefix in (m, p, mt, mb, ml, mr, pt, pb, pl, pr) {

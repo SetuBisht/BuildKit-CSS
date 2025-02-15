@@ -1,0 +1,115 @@
+@use "../themes/them.scss";
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 4px;
+}
+
+// 🎨 Generate button variants
+@each $name, $color in $colors {
+    .btn-#{$name} {
+        background-color: $color;
+        color: #fff;
+    }
+
+    .btn-#{$name}:hover {
+        background-color: darken($color, 10%);
+    }
+
+    .btn-outline-#{$name} {
+        background-color: transparent;
+        color: $color;
+        border: 2px solid $color;
+    }
+
+    .btn-outline-#{$name}:hover {
+        background-color: $color;
+        color: #fff;
+    }
+}
+
+// 🌙 Dark Mode Button Support
+[data-theme="dark"] {
+    @each $name, $color in $dark-colors {
+        .btn-#{$name} {
+            background-color: $color;
+            color: #fff;
+        }
+
+        .btn-#{$name}:hover {
+            background-color: lighten($color, 10%);
+        }
+
+        .btn-outline-#{$name} {
+            color: $color;
+            border-color: $color;
+        }
+
+        .btn-outline-#{$name}:hover {
+            background-color: $color;
+            color: #fff;
+        }
+    }
+}
+
+// 📏 Button Sizes
+.btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn-lg {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+}
+
+// 🟠 Rounded Buttons
+.btn-rounded {
+    border-radius: 50px;
+}
+
+// ⏺️ Button Hover Effects
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+// ⏳ Loading State
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
