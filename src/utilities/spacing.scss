@@ -1,0 +1,108 @@
+// Default spacing scale (Users can override)
+
+$spacing-values: (
+    xs: 4px,
+    sm: 8px,
+    md: 16px,
+    lg: 24px,
+    xl: 32px,
+    xxl: 48px) !default;
+
+    
+
+// Generate predefined spacing classes
+@mixin spacing-class($prefix, $size, $value) {
+    .#{$prefix}-#{$size} {
+        @if ($prefix ==m) {
+            margin: $value !important;
+        }
+
+        @else if ($prefix ==p) {
+            padding: $value !important;
+        }
+    }
+
+    .#{$prefix}-n#{$size} {
+        @if ($prefix ==m) {
+            margin: -$value !important;
+        }
+
+        @else if ($prefix ==p) {
+            padding: -$value !important;
+        }
+    }
+}
+
+// Generate spacing classes for all predefined sizes
+@each $size, $value in $spacing-values {
+    @each $prefix in (m, p) {
+        @include spacing-class($prefix, $size, $value
+    );
+}
+}
+
+// Auto Margins
+.m-auto {
+    margin: auto !important;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.my-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+// Arbitrary Dynamic Spacing (Supports px, %, vh, vw, rem)
+[class^="m-["],
+[class*=" m-["] {
+    margin: var(--spacing) !important;
+}
+
+[class^="p-["],
+[class*=" p-["] {
+    padding: var(--spacing) !important;
+}
+
+[class^="mt-["],
+[class*=" mt-["] {
+    margin-top: var(--spacing) !important;
+}
+
+[class^="mb-["],
+[class*=" mb-["] {
+    margin-bottom: var(--spacing) !important;
+}
+
+[class^="ml-["],
+[class*=" ml-["] {
+    margin-left: var(--spacing) !important;
+}
+
+[class^="mr-["],
+[class*=" mr-["] {
+    margin-right: var(--spacing) !important;
+}
+
+[class^="pt-["],
+[class*=" pt-["] {
+    padding-top: var(--spacing) !important;
+}
+
+[class^="pb-["],
+[class*=" pb-["] {
+    padding-bottom: var(--spacing) !important;
+}
+
+[class^="pl-["],
+[class*=" pl-["] {
+    padding-left: var(--spacing) !important;
+}
+
+[class^="pr-["],
+[class*=" pr-["] {
+    padding-right: var(--spacing) !important;
+}
