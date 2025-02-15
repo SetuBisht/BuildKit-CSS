@@ -21,7 +21,7 @@ export const SpacingExamples = () => `
   
   <h3>Predefined Spacing Classes</h3>
   <div style="display: flex; flex-direction: column; gap: 10px;">
-    <div class="m-xs bg-gray-300 box">m-xs</div>
+    <div class="m-xs  bg-gray-300 box">m-xs</div>
     <div class="m-sm bg-gray-300 box">m-sm</div>
     <div class="m-md bg-gray-300 box">m-md</div>
     <div class="m-lg bg-gray-300 box">m-lg</div>
@@ -49,7 +49,7 @@ export const SpacingExamples = () => `
 
   <h3>Arbitrary Spacing</h3>
   <div style="display: flex; flex-direction: column; gap: 10px;">
-    <div class="m-[10rem] bg-gray-300 box">m-[10rem]</div>
+    <div class="m-[10rem] pt-[20px] bg-gray-300 box">m-[10rem]</div>
     <div class="p-[20px] bg-gray-300 box">p-[20px]</div>
     <div class="mt-[30px] bg-gray-300 box">mt-[30px]</div>
     <div class="mb-[40px] bg-gray-300 box">mb-[40px]</div>

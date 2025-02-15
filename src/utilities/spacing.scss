@@ -1,5 +1,4 @@
 // Default spacing scale (Users can override)
-
 $spacing-values: (
     xs: 4px,
     sm: 8px,
@@ -7,8 +6,6 @@ $spacing-values: (
     lg: 24px,
     xl: 32px,
     xxl: 48px) !default;
-
-    
 
 // Generate predefined spacing classes
 @mixin spacing-class($prefix, $size, $value) {
@@ -35,74 +32,87 @@ $spacing-values: (
 
 // Generate spacing classes for all predefined sizes
 @each $size, $value in $spacing-values {
-    @each $prefix in (m, p) {
+    @each $prefix in (m, p, mt, mb, ml, mr, pt, pb, pl, pr) {
         @include spacing-class($prefix, $size, $value
     );
 }
 }
 
 // Auto Margins
+@mixin auto-margin($axis) {
+    @if ($axis =="x") {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    @else if ($axis =="y") {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+    }
+
+    @else {
+        margin: auto !important;
+    }
+}
+
 .m-auto {
-    margin: auto !important;
+    @include auto-margin("");
 }
 
 .mx-auto {
-    margin-left: auto !important;
-    margin-right: auto !important;
+    @include auto-margin("x");
 }
 
 .my-auto {
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    @include auto-margin("y");
 }
 
-// Arbitrary Dynamic Spacing (Supports px, %, vh, vw, rem)
 [class^="m-["],
 [class*=" m-["] {
-    margin: var(--spacing) !important;
+    margin: var(--margin-value) !important;
 }
 
 [class^="p-["],
 [class*=" p-["] {
-    padding: var(--spacing) !important;
+    padding: var(--padding-value) !important;
 }
 
 [class^="mt-["],
 [class*=" mt-["] {
-    margin-top: var(--spacing) !important;
+    margin-top: var(--margin-top) !important;
 }
 
 [class^="mb-["],
 [class*=" mb-["] {
-    margin-bottom: var(--spacing) !important;
+    margin-bottom: var(--margin-bottom) !important;
 }
 
 [class^="ml-["],
 [class*=" ml-["] {
-    margin-left: var(--spacing) !important;
+    margin-left: var(--margin-left) !important;
 }
 
 [class^="mr-["],
 [class*=" mr-["] {
-    margin-right: var(--spacing) !important;
+    margin-right: var(--margin-right) !important;
 }
 
 [class^="pt-["],
 [class*=" pt-["] {
-    padding-top: var(--spacing) !important;
+    padding-top: var(--padding-top) !important;
 }
 
 [class^="pb-["],
 [class*=" pb-["] {
-    padding-bottom: var(--spacing) !important;
+    padding-bottom: var(--padding-bottom) !important;
 }
 
 [class^="pl-["],
 [class*=" pl-["] {
-    padding-left: var(--spacing) !important;
+    padding-left: var(--padding-left) !important;
 }
 
 [class^="pr-["],
 [class*=" pr-["] {
-    padding-right: var(--spacing) !important;
+    padding-right: var(--padding-right) !important;
 }

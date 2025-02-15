@@ -1,0 +1,168 @@
+// Default Flexbox Values
+$flex-values: (
+    direction: (row: 'row',
+        column: 'column',
+    ),
+    justify: (start: 'flex-start',
+        center: 'center',
+        end: 'flex-end',
+        between: 'space-between',
+        around: 'space-around',
+        evenly: 'space-evenly',
+    ),
+    align: (start: 'flex-start',
+        center: 'center',
+        end: 'flex-end',
+        stretch: 'stretch',
+        baseline: 'baseline',
+    ),
+    wrap: (nowrap: 'nowrap',
+        wrap: 'wrap',
+        wrapReverse: 'wrap-reverse',
+    ),
+    gap: (xs: '4px',
+        sm: '8px',
+        md: '16px',
+        lg: '24px',
+        xl: '32px',
+        xxl: '48px')
+);
+
+// Mixin to generate flex utility classes
+@mixin flex-class($property, $value) {
+    .#{$property}-#{$value} {
+        #{$property}: $value !important;
+    }
+}
+
+// Generate Flexbox classes for direction (row, column)
+@each $direction, $value in map-get($flex-values, direction) {
+    @include flex-class('flex-direction', $value);
+}
+
+// Generate justify-content classes
+@each $justify, $value in map-get($flex-values, justify) {
+    @include flex-class('justify', $value);
+}
+
+// Generate align-items classes
+@each $align, $value in map-get($flex-values, align) {
+    @include flex-class('items', $value);
+}
+
+// Generate flex-wrap classes
+@each $wrap, $value in map-get($flex-values, wrap) {
+    @include flex-class('wrap', $value);
+}
+
+// Generate gap classes
+@each $gap, $value in map-get($flex-values, gap) {
+    @include flex-class('gap', $value);
+}
+
+// Flexbox Container Class (Display Flex)
+.flex {
+    display: flex !important;
+}
+
+// Flexbox Column Class (flex-direction: column)
+.flex-column {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+// Flexbox Row Class (flex-direction: row)
+.flex-row {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+// Justify Content Classes (Horizontal Alignment)
+.justify-center {
+    justify-content: center !important;
+}
+
+.justify-start {
+    justify-content: flex-start !important;
+}
+
+.justify-end {
+    justify-content: flex-end !important;
+}
+
+.justify-between {
+    justify-content: space-between !important;
+}
+
+.justify-around {
+    justify-content: space-around !important;
+}
+
+.justify-evenly {
+    justify-content: space-evenly !important;
+}
+
+// Align Items Classes (Vertical Alignment)
+.items-center {
+    align-items: center !important;
+}
+
+.items-start {
+    align-items: flex-start !important;
+}
+
+.items-end {
+    align-items: flex-end !important;
+}
+
+.items-baseline {
+    align-items: baseline !important;
+}
+
+.items-stretch {
+    align-items: stretch !important;
+}
+
+// Flex Wrap Classes
+.wrap-nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.wrap-wrap {
+    flex-wrap: wrap !important;
+}
+
+.wrap-wrap-reverse {
+    flex-wrap: wrap-reverse !important;
+}
+
+// Flex Gap Classes (Spacing Between Flex Items)
+.gap-xs {
+    gap: 4px !important;
+}
+
+.gap-sm {
+    gap: 8px !important;
+}
+
+.gap-md {
+    gap: 16px !important;
+}
+
+.gap-lg {
+    gap: 24px !important;
+}
+
+.gap-xl {
+    gap: 32px !important;
+}
+
+.gap-xxl {
+    gap: 48px !important;
+}
+
+// Arbitrary Flexbox Gap (Supports dynamic values like gap-[10px])
+[class^="gap-["],
+[class*=" gap-["] {
+    gap: var(--flex-gap-value) !important;
+}
