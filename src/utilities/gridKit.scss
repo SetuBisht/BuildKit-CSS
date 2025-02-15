@@ -1,7 +1,3 @@
-// Import breakpoint settings (Ensure this path is correct)
-@use "breakpointkit";
-
-// Grid system with customizable settings
 $grid-columns: 12 !default; // Number of columns
 $grid-gaps: (
     none: 0,
