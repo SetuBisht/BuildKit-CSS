@@ -24,34 +24,35 @@ $dark-colors: (
     "dark": #f8f9fa,
     "neutral": #424242) !default;
 
-// 🎨 Generate Text, Background, and Border Classes
+// 🎨 Generate Text, Background, and Border Classes Using Custom Properties
 @each $name, $color in $colors {
     .text-#{$name} {
-        color: $color;
-    }
+        color: var(--color-#{$name}
+    );
+}
 
-    .bg-#{$name} {
-        background-color: $color;
-    }
+.bg-#{$name} {
+    background-color: var(--color-#{$name});
+}
 
-    .border-#{$name} {
-        border-color: $color;
-    }
+.border-#{$name} {
+    border-color: var(--color-#{$name});
+}
 }
 
 // 🌙 Dark Mode Support
 [data-theme="dark"] {
     @each $name, $color in $dark-colors {
         .text-#{$name} {
-            color: $color;
+            color: var(--color-#{$name});
         }
 
         .bg-#{$name} {
-            background-color: $color;
+            background-color: var(--color-#{$name});
         }
 
         .border-#{$name} {
-            border-color: $color;
+            border-color: var(--color-#{$name});
         }
     }
 }
