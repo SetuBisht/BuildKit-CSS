@@ -1,27 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  function openModal() {
-    document.getElementsByClassName("modal-overlay").classList.add("show");
-  }
-
-  function closeModal() {
-    document.getElementsByClassName("modal-overlay").classList.remove("show");
-  }
-
-  // Close modal when clicking outside
-  document
-    .getElementsByClassName("openModalBtn")
-    .addEventListener("click", function (e) {
-      if (e.target === this) closeModal();
-    });
-
-  // Attach event listeners to buttons
-  document
-    .getElementsByClassName("openModalBtn")
-    .addEventListener("click", openModal);
-  document
-    .getElementsByClassName("closeModalBtn")
-    .addEventListener("click", closeModal);
-
   console.log("DOM fully loaded and parsed.");
 
   // Handle gap-[...] classes
