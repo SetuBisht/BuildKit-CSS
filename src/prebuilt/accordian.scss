@@ -1,0 +1,73 @@
+// Accordion Component
+.accordion {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #ddd);
+    background: var(--accordion-bg, #fff);
+
+    .accordion-item {
+        border-bottom: 1px solid var(--border-color, #ddd);
+        position: relative;
+        overflow: hidden;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .accordion-toggle {
+        display: none; // Hide checkbox
+    }
+
+    .accordion-header {
+        width: 100%;
+        background: var(--accordion-header-bg, #f5f5f5);
+        padding: var(--accordion-padding, 15px);
+        text-align: left;
+        font-size: var(--accordion-font-size, 1rem);
+        font-weight: var(--accordion-font-weight, bold);
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+            background: var(--accordion-hover-bg, #e0e0e0);
+        }
+
+        &::after {
+            content: "+";
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 var(--accordion-padding, 15px);
+        background: var(--accordion-content-bg, #fff);
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    }
+
+    // Active state
+    .accordion-toggle:checked+.accordion-header {
+        background: var(--accordion-active-bg, #d9d9d9);
+
+        &::after {
+            content: "-";
+        }
+    }
+
+    .accordion-toggle:checked+.accordion-header+.accordion-content {
+        max-height: 200px;
+        padding: var(--accordion-padding, 15px);
+    }
+}

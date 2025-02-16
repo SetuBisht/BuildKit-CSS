@@ -5,10 +5,6 @@ export default {
   },
   argTypes: {
     darkMode: { control: "boolean" },
-    size: {
-      control: "select",
-      options: ["modal-sm", "modal-md", "modal-lg"],
-    },
   },
 };
 
@@ -19,14 +15,13 @@ const Template = ({ darkMode, size }) => {
   // Create button to trigger modal
   const button = document.createElement("button");
   button.innerText = "Open Modal";
-  button.className = "btn btn-primary";
+  button.className = "btn btn-primary openModalBtn";
   container.appendChild(button);
 
   // Function to create modal
   const createModal = () => {
     const overlay = document.createElement("div");
-    overlay.className = "modal-overlay";
-    overlay.style.display = "none";
+    overlay.className = "modal-overlay ";
 
     const modal = document.createElement("div");
     modal.className = `modal ${darkMode ? "dark" : ""} ${size}`;
@@ -40,8 +35,8 @@ const Template = ({ darkMode, size }) => {
         <p>This is a ${darkMode ? "dark mode" : "light mode"} modal.</p>
       </div>
       <div class="modal-footer">
-        <button class="btn close-modal">Close</button>
-        <button class="btn btn-primary">Save</button>
+        <button class="btn close-modal closeModalBtn">Close</button>
+        <button class="btn btn-primary openModalBtn">Save</button>
       </div>
     `;
 
@@ -53,24 +48,30 @@ const Template = ({ darkMode, size }) => {
     const closeModal = modal.querySelector(".close-modal");
 
     button.addEventListener("click", () => {
-      overlay.style.display = "block";
+      overlay.style.visibility = "visible";
+      overlay.style.opacity = "1";
+      modal.style.opacity = "1";
     });
 
     overlay.addEventListener("click", () => {
-      overlay.style.display = "none";
+      overlay.style.visibility = "hidden";
+      overlay.style.opacity = "0";
+      modal.style.opacity = "0";
     });
 
     modal.addEventListener("click", (e) => e.stopPropagation()); // Prevent modal from closing when clicking inside
 
     if (closeButton) {
       closeButton.addEventListener("click", () => {
-        overlay.style.display = "none";
+        overlay.style.visibility = "hidden";
+        modal.style.opacity = "0";
       });
     }
 
     if (closeModal) {
       closeModal.addEventListener("click", () => {
-        overlay.style.display = "none";
+        overlay.style.visibility = "hidden";
+        modal.style.opacity = "0";
       });
     }
   };

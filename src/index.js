@@ -1,16 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   function openModal() {
-    document.getElementById("myModal").classList.add("show");
+    document.getElementsByClassName("modal-overlay").classList.add("show");
   }
 
   function closeModal() {
-    document.getElementById("myModal").classList.remove("show");
+    document.getElementsByClassName("modal-overlay").classList.remove("show");
   }
 
-  // Close modal on outside click
-  document.getElementById("myModal").addEventListener("click", function (e) {
-    if (e.target === this) closeModal();
-  });
+  // Close modal when clicking outside
+  document
+    .getElementsByClassName("openModalBtn")
+    .addEventListener("click", function (e) {
+      if (e.target === this) closeModal();
+    });
+
+  // Attach event listeners to buttons
+  document
+    .getElementsByClassName("openModalBtn")
+    .addEventListener("click", openModal);
+  document
+    .getElementsByClassName("closeModalBtn")
+    .addEventListener("click", closeModal);
 
   console.log("DOM fully loaded and parsed.");
 
@@ -27,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[class*='font-s-[']").forEach((el) => {
     const match = el.className.match(/font-s-\[(.*?)\]/);
     if (match && match[1]) {
+      ``;
       const value = match[1].trim();
       el.style.setProperty("--font-size", value);
     }
