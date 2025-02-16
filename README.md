@@ -17,6 +17,13 @@ BuildKit-CSSis a lightweight, utility-first CSS library designed for rapid UI de
 npm install buildkit-css
 ```
 
+After installation, import the CSS and JavaScript files from the <code>dist</code> folder:</p>
+
+```sh
+   import 'buildkit-css/dist/buildKit.css';
+   import 'buildkit-css/dist/main.js';
+```
+
 <!-- Or include it via CDN:
 
 ```html
@@ -61,10 +68,20 @@ $border-radius: 8px;
 OR using `buildkit.config.js`:
 
 ```js
-export default {
-  theme: {
+module.exports = {
+  spacingValues: {
+    sm: "4px",
+    md: "8px",
+    lg: "16px",
+  },
+  colors: {
     primary: "#007bff",
-    borderRadius: "8px",
+    secondary: "#6c757d",
+  },
+  breakpoints: {
+    sm: "576px",
+    md: "768px",
+    lg: "992px",
   },
 };
 ```
