@@ -8,10 +8,11 @@
     "dev": "webpack serve --mode development",
     "test": "echo \"No test setup yet\" && exit 0",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "build:css": "sass src/styles.scss dist/buildKit.css --no-source-map",
     "build:js": "webpack",
-    "build-files": "npm run build:css && npm run build:js"
+    "build-files": "npm run build:css && npm run build:js",
+    "build-storybook": "storybook build",
+    "deploy-storybook": "storybook deploy"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "@storybook/blocks": "^8.5.6",
     "@storybook/html": "^8.5.6",
     "@storybook/html-webpack5": "^8.5.6",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/test": "^8.5.6",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",

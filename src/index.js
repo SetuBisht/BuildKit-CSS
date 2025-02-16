@@ -72,6 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function openModal() {
+  document.getElementById("myModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("myModal").classList.remove("show");
+}
+
+// Close modal on outside click
+document.getElementById("myModal").addEventListener("click", function (e) {
+  if (e.target === this) closeModal();
+});
+
 // document.addEventListener("DOMContentLoaded", () => {
 //   console.log("DOM fully loaded and parsed.");
 
