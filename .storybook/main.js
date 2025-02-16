@@ -1,9 +1,13 @@
 /** @type { import('@storybook/html-webpack5').StorybookConfig } */
 const config = {
-  stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|ts|jsx|tsx)"],
+  stories: [
+    "../src/stories/**/*.mdx",
+    "../src/stories/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-essentials",
+    "@chromatic-com/storybook",
     "@storybook/addon-interactions",
   ],
   framework: {
@@ -11,17 +15,10 @@ const config = {
     options: {},
   },
   webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"],
-        },
-      },
-    });
-
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": require("path").resolve(__dirname, "../src/stories"),
+    };
     return config;
   },
 };
