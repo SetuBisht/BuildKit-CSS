@@ -24,18 +24,24 @@ After installation, import the CSS and JavaScript files from the <code>dist</cod
    import 'buildkit-css/dist/main.js';
 ```
 
-<!-- Or include it via CDN:
+Or include it via CDN:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/struxkturi-css@latest/dist/struxkturi.min.css">
-``` -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/SetuBisht/BuildKit-CSS@main/dist/buildKit.css"
+/>
+<script
+  href="https://cdn.jsdelivr.net/gh/SetuBisht/BuildKit-CSS@main/dist/main.js"
+/>
+```
 
 ## Usage
 
 ### Using Utility Classes
 
 ```html
-<div class="flex justify-center p-4 bg-primary text-white">
+<div class="flex justify-center p-[4px] bg-primary text-white">
   Welcome to BuildKit-CSS
 </div>
 ```
