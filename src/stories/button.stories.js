@@ -1,6 +1,3 @@
-import "../../dist/buildKit.css"; // Ensure this imports your compiled CSS
-import "../../dist/main.js"; // If you have JS interactions, import them
-
 export default {
   title: "Components/Buttons",
   parameters: {

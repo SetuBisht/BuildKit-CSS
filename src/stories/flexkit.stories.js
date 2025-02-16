@@ -1,6 +1,3 @@
-import "../../dist/buildKit.css"; // Ensure this imports your SCSS output CSS
-import "../../dist/main.js"; // If you have JS interactions, import them
-
 export default {
   title: "Utilities/Flexbox", // Grouping Flexbox utilities under a "Utilities" category
   parameters: {

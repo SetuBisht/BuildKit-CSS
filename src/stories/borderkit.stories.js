@@ -1,5 +1,3 @@
-import "../../dist/buildKit.css"; // Ensure this imports your SCSS output CSS
-import "../../dist/main.js"; // If you have JS interactions, import them
 
 export default {
   title: "Utilities/Border", // Grouping Border utilities under a "Utilities" category

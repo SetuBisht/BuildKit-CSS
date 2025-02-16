@@ -1,6 +1,3 @@
-import "../../dist/buildKit.css";
-import "../../dist/main.js";
-
 export default {
   title: "Prebuilt/Modal",
   parameters: {

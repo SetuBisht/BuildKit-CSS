@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A Highly Customizable Utility-First CSS Framework",
   "main": "dist/buildKit.css",
+  "homepage": "https://SetuBisht.github.io/BuildKit-CSS/",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
@@ -12,7 +13,7 @@
     "build:js": "webpack",
     "build-files": "npm run build:css && npm run build:js",
     "build-storybook": "storybook build",
-    "deploy-storybook": "storybook deploy"
+    "deploy-storybook": "npx storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/SetuBisht/BuildKit-CSS/issues"
   },
-  "homepage": "https://github.com/SetuBisht/BuildKit-CSS#readme",
   "files": [
     "dist",
     "src",
