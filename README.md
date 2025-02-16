@@ -29,11 +29,9 @@ Or include it via CDN:
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/SetuBisht/BuildKit-CSS@main/dist/buildKit.css"
+  href="https://cdn.jsdelivr.net/npm/buildkit-css@latest/dist/buildKit.css"
 />
-<script
-  href="https://cdn.jsdelivr.net/gh/SetuBisht/BuildKit-CSS@main/dist/main.js"
-/>
+<script href="https://cdn.jsdelivr.net/npm/buildkit-css@latest/dist/main.js" />
 ```
 
 ## Usage

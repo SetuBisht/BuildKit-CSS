@@ -1,6 +1,6 @@
 {
   "name": "buildkit-css",
-  "version": "1.0.02",
+  "version": "1.0.03",
   "description": "A Highly Customizable Utility-First CSS Framework",
   "main": "dist/buildKit.css",
   "homepage": "https://SetuBisht.github.io/BuildKit-CSS/",
