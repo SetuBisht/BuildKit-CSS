@@ -1,6 +1,6 @@
 # BuildKit-CSS
 
-BuildKit-CSSis a lightweight, utility-first CSS library designed for rapid UI development. It provides a set of utility classes, theming support, and prebuilt components like accordions, dialogs, cards, buttons, grids, and more. This library works with vanilla HTML, React, and Next.js.
+BuildKit-CSS is a lightweight, utility-first CSS library designed for rapid UI development. It provides a set of utility classes, theming support, and prebuilt components like accordions, dialogs, cards, buttons, grids, and more. This library works with vanilla HTML, React, and Next.js.
 
 ## Features
 
@@ -39,7 +39,9 @@ Or include it via CDN:
 ### Using Utility Classes
 
 ```html
-<div class="flex justify-center p-[4px] bg-primary text-white">
+<div
+  class="flex justify-center p-[4px] bg-primary text-white font-s-[10px] font-w-[50px]"
+>
   Welcome to BuildKit-CSS
 </div>
 ```
@@ -51,10 +53,24 @@ Or include it via CDN:
 ```html
 <div class="accordion">
   <div class="accordion-item">
-    <input type="checkbox" id="acc1" />
+    <input type="checkbox" id="acc1" class="accordion-toggle" />
     <label class="accordion-header" for="acc1">Section 1</label>
     <div class="accordion-content">
       <p>This is the content of section 1.</p>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <input type="checkbox" id="acc2" class="accordion-toggle" />
+    <label class="accordion-header" for="acc2">Section 2</label>
+    <div class="accordion-content">
+      <p>This is the content of section 2.</p>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <input type="checkbox" id="acc3" class="accordion-toggle" />
+    <label class="accordion-header" for="acc3">Section 3</label>
+    <div class="accordion-content">
+      <p>This is the content of section 3.</p>
     </div>
   </div>
 </div>
